@@ -1,0 +1,62 @@
+openapi: 3.2.0
+info: 
+  version: 0.0.0
+  title: Model API
+  description: OAS for openai api
+servers: 
+  - url: http://localhost:8080
+tags:
+  - name: model 
+    description: Model ping/pong
+paths: 
+  /model/ping:
+    get:
+      summary: Send Ping
+      operationId: SendPing
+      tags: 
+        - request
+      responses: 
+        "200": 
+          description: success
+          content: 
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/PingPong"  
+        "404":
+          description: not found
+          content: 
+            application/json: 
+              schema: 
+                $ref: "#/components/schemas/ErrNotFound"
+
+components:
+  schemas:
+    WithStatus:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: boolean
+
+    WithMessage:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+
+    PingPong:
+      allOf: 
+        - $ref: "#/components/schemas/WithStatus"
+        - $ref: "#/components/schemas/WithMessage"
+
+    ErrNotFound:
+      type: object
+      required:
+        - err_msg
+      properties:
+        err_msg:
+          type: string
+
