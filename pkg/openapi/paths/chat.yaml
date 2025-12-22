@@ -1,0 +1,19 @@
+ping:
+    get:
+      summary: Send Ping
+      operationId: SendPing
+      tags: 
+        - request
+      responses: 
+        "200": 
+          description: success
+          content: 
+            application/json: 
+              schema:
+                $ref: ../schemas/chat.yaml#/PingPong
+        "404":
+          description: not found
+          content: 
+            application/json: 
+              schema: 
+                $ref: ../schemas/chat.yaml#/ErrNotFound

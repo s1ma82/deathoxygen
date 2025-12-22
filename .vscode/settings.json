@@ -1,5 +1,8 @@
 {
     "yaml.schemas": {
-        "https://www.schemastore.org/yamllint.json": "file:///home/s1ma82/deathoxygen/oapi-codegen.yaml"
+        "https://www.schemastore.org/yamllint.json": [
+            "file:///home/s1ma82/deathoxygen/oapi-codegen.yaml",
+            "file:///home/s1ma82/deathoxygen/pkg/openapi/openapi.yaml"
+        ]
     }
 }

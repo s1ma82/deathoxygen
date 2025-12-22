@@ -1,0 +1,11 @@
+PingPong:
+  allOf:
+    - $ref: ./common.yaml#/WithStatus
+    - $ref: ./common.yaml#/WithMessage
+
+ErrNotFound:
+  type: object
+  required: [err_msg]
+  properties:
+    err_msg:
+      type: string

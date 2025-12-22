@@ -1,0 +1,26 @@
+openapi: 3.0.3
+info: 
+  version: 0.0.0
+  title: API
+  description: OAS for openai api
+servers: 
+  - url: http://localhost:8080
+tags:
+  - name: api 
+    description: full api
+paths: 
+  /chat/ping:
+    $ref: ./paths/chat.yaml#/ping
+  
+
+components:
+  schemas:
+    WithStatus:
+      $ref: ./schemas/common.yaml#/WithStatus
+    WithMessage:
+      $ref: ./schemas/common.yaml#/WithMessage
+    PingPong:
+      $ref: ./schemas/chat.yaml#/PingPong
+    ErrNotFound:
+      $ref: ./schemas/chat.yaml#/ErrNotFound
+     
